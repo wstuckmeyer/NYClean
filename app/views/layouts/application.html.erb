@@ -9,7 +9,7 @@
   </head>
 
   <body>
-  	
+  	<% unless controller_name == "home" || 'devise' %>
 	  	<ul id="dropdown1" class="dropdown-content">
 		  <li><a href="#!">Chelsea</a></li>
 		  <li><a href="#!">East Villiage</a></li>
@@ -39,7 +39,7 @@
      	 </ul>
 	    </div>
 	  </nav>
-     
+     <%end%>
     <%= yield %>
   </body>
 </html>
