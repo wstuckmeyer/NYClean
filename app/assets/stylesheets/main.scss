@@ -3,7 +3,31 @@ $accent:  #2EC2DD;
 $dark-grey: #585a5d;
 $white: #e9eaea;
 $light-grey: #aebaa5;
- 
+
+@font-face{
+	font-family: 'Comfortaa';
+	src:font-url("Comfortaa.ttf");
+}
 .navlink{
 	color: $dark-grey;
+}
+.imgcontainer{
+	background-image: image-url('becky2.png');
+	width:100%;
+	background-size:cover; 
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	height:89vh;
+}
+.splashLogo{
+	margin-left:2%;
+	width:87%;
+}
+#splashText{
+	color: $white;
+	font-size: 1.5em;
+	font-family: 'Comfortaa';
+}
+#login{
+	font-size:2em;
 }
