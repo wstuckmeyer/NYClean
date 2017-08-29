@@ -3,12 +3,43 @@
   <head>
     <title>NYClean</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  	
+	  	<ul id="dropdown1" class="dropdown-content">
+		  <li><a href="#!">Chelsea</a></li>
+		  <li><a href="#!">East Villiage</a></li>
+		  <li><a href="#!">Harlem</a></li>
+		</ul>
+		<ul id="dropdown2" class="dropdown-content">
+		  <li><a href="#!">Chelsea</a></li>
+		  <li><a href="#!">East Villiage</a></li>
+		  <li><a href="#!">Harlem</a></li>
+		</ul>
+
+	  <nav>
+	    <div class="nav-wrapper yellow accent-3" id='nav'>
+	      <a href="#" class="brand-logo"><%=image_tag('NYCleanName.png')%></a>
+	      <a  data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a class ='waves-effect waves-yellow btn cyan lighten-1' href="#">Start a Project</a></li>
+	        <li><a class="dropdown-button navlink" href="#!" data-activates="dropdown1">Neighborhoods<i class="material-icons right">arrow_drop_down</i></a></li>
+	        <li><a class='navlink' href="#">Home</a></li>
+	        <li><a class='navlink' href="#">Log-Out</a></li>
+	      </ul>
+	      <ul class="side-nav" id="mobile-demo">
+	        <li><a class = ' btn waves-effect waves-yellow btn'' href="#">Start a project</a></li>
+	        <li><a class="dropdown-button navlink" href="#!" data-activates="dropdown2">Neighborhoods<i class="material-icons right">arrow_drop_down</i></a></li>
+	        <li><a class='navlink' href="#">Home</a></li>
+	        <li><a class='navlink' href="#">Log-Out</a></li>
+     	 </ul>
+	    </div>
+	  </nav>
+     
     <%= yield %>
   </body>
 </html>

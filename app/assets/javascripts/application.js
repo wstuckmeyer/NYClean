@@ -9,8 +9,11 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//= require jquery-3.2.1.js
 //= require rails-ujs
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
+$( document ).ready(function(){
+	 $(".button-collapse").sideNav();
+})
