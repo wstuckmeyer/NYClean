@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
  	 session[:id] = current_user.id
   	 user_path(resource)
   end
+  def after_sign_up_path_for(resource)
+	  if resource.is_a?(User)
+	  	session[:id] = current_user.id
+	    user_path
+	  else
+	    super
+	  end
+	end
 end
