@@ -56,3 +56,4 @@ gem 'materialize-sass'
 gem 'material_icons'
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
