@@ -5,7 +5,7 @@ $(document).ready(function() {
 		//prevents submittal
 		e.preventDefault();
 
-		var location = document.getElementById('location-input').value;
+		var location = document.getElementById('project_location').value;
 		axios.get('https://maps.googleapis.com/maps/api/geocode/json?', {
 			params:{
 				address: location,
@@ -38,7 +38,7 @@ $(document).ready(function() {
 
 	}
 
-	var locationForm = document.getElementById('deets');
+	var locationForm = document.getElementById('project_location');
 	locationForm.addEventListener('project-submit', geoCode);	
 });
 
