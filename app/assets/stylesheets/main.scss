@@ -36,7 +36,58 @@ $light-grey: #aebaa5;
 		width:117%;
 	}
 }
+nav{
+	color:$white;
+	li{
+
+	a{
+		color:$white;
+	}
+}
+ul{
+	li{
+		a{
+			color:$white;
+		}
+	}
+}
+
+a:visited{
+	color:$white;
+}
+}
 #createbackground{
 	background-color:$white;
 	height:100vh;
+}
+#backgroundimage{
+	background-image: image-url('henry.jpg');
+	margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-size:cover;
+    z-index: -100;
+    height:60%;
+}
+#upcomingEvents, #welcome{
+	color:$white;
+}
+#top{
+	margin-top: 5%;
+	margin-bottom:5%;
+}
+#cards{
+	margin-top:5%;
+}
+.btn-large{
+	margin-left:2%;
+}
+@media(max-width:672px){
+	#volbtn{
+		margin-top:5%;
+	}
 }

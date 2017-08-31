@@ -6,6 +6,8 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   has_many :projects
   has_many :messages
+
   has_many :volunteers
   has_many :projects, through: :volunteers
+
 end
