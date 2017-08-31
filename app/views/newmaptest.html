@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Google Maps API</title>
+	<style type="text/css">
+		.border{
+	border: 2px solid black;
+}
+	</style>
+</head>
+<body>
+		
+		<div class="row">
+			<div class="col s12 border">
+				<h1>Welcome to the Create Project Page!</h1>
+			</div>
+			<div class="col s6 m6 l6">
+			<h5>Enter the location of your project by neighborhood, address or park: </h5>			
+			</div>
+			
+				<!-- form to enter location -->
+		<form id="location-form">
+			<input type="text" id="location-input" name="locationInput">
+			<br>
+			<button type="submit">Submit</button>
+		</form>
+		</div>
+		<div id='map' style="width:350px; height:500px; overflow: scroll;"></div>
+
+			<div id="geometry"></div>
+			<button type="submit">Create this project</button>
+<!-- 			<div id="formatted-Address"></div>
+			<div id="address-components"></div>
+ -->			
+
+
+
+
+			<!-- google map -->
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2RCgQ2GZ4w0zMxOmbC2_fOvQt26wpSSA"
+		async defer></script>
+		<script type="text/javascript">
+
+	//get location form
+	var locationForm = document.getElementById('location-form');
+	
+	//submit listener
+	locationForm.addEventListener('submit', geoCode);	
+
+	function geoCode(e){
+		//prevents submittal
+		e.preventDefault();
+
+		var location = document.getElementById('location-input').value;
+		axios.get('https://maps.googleapis.com/maps/api/geocode/json?', {
+			params:{
+				address: location,
+				key: 'AIzaSyC2RCgQ2GZ4w0zMxOmbC2_fOvQt26wpSSA'
+			}
+		})
+		.then(function(response){
+			console.log(response);
+			//log full response
+			var formattedAddress = response.data.results[0].formatted_address;
+			var formattedAddressOutput = `${formattedAddress}`;
+
+			var addressComponents = response.data.results[0].address_components;
+			var addressComponentsOutput = '<ul>';
+			for(var i = 0; i < addressComponents.length; i++){
+				addressComponentsOutput += `${addressComponents[i].types[0]}: ${addressComponents[i].long_name}`;
+			}
+
+			var lat = response.data.results[0].geometry.location.lat;
+			var lng = response.data.results[0].geometry.location.lng;
+			var geometryOutput = `<li id="lat">${lat}</li> <li id="lng">${lng}</li>`;
+
+
+			// document.getElementById('formatted-Address').innerHTML = formattedAddressOutput;
+			// document.getElementById('address-components').innerHTML = addressComponentsOutput;
+			document.getElementById('geometry').innerHTML = geometryOutput;
+
+		}).then(function(){
+			var lngi =  parseFloat(document.getElementById('lng').innerHTML)
+			var lati =  parseFloat(document.getElementById('lat').innerHTML)
+				var map = new google.maps.Map(document.getElementById('map'), {
+					center: {lat: lati, lng: lngi},
+					zoom: 15
+				});
+		})
+		.catch(function(error){
+			console.log(error);
+		})
+
+      }
+
+</script>
+</body>
+</html>
