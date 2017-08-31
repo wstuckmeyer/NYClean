@@ -2,35 +2,112 @@
 
 <body>
 
-	<div class="row">
-		<div id="welcomeUser" class="col s12 m12 l8 left-align ">
-			<h1>Welcome <%=current_user.name%></h1>
-			<%=image_tag(current_user.avatar)%>
+	<div class="row" id='top'>
+		<div id="welcomeUser" class="col s12 m12 l12 left-align ">
+			<h3 id='welcome'>Welcome <%=current_user.name%></h3>
+			
 		</div>
-		<div id="upcomingEvents" class="col s12 m12 l4 border">
-			<h3>Upcoming Events</h3>
 		
+	<div class="row">
+		
+		<div class="button-group filter-button-group ">
+		  <button class='btn-large cyan lighten-1' data-filter="*">show all</button>
+		  <button class='btn-large cyan lighten-1' data-filter=".yours">Your Events</button>
+		  <button id='volbtn' class='btn-large cyan lighten-1' data-filter=".volunteer">Volunteering</button>
+		  
 		</div>
 	</div>
-	<div class="row">
+	<div class='row' id='cards'>
+        <div class="grid"
+			  data-isotope='{ "itemSelector": ".grid-item", "masonry": { "columnWidth": 200 } }'>
+			<div class="grid-item yours col s12 m6 l3">
+				<!-- <div class='col s12 m6 l3'> -->
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag('volunteer1.jpg')%>
+		              <span class="card-title">Card Title</span>
+		              </div>
+		            <div class="card-content">
+		              <p>I am a very simple card. I am good at containing small bits of information.
+		              I am convenient because I require little markup to use effectively.</p>
+		            </div>
+		            <div class="card-action">
+		              <a href="#">This is a link</a>
+		            </div>
+		          <!-- </div>
+ -->		        </div>
+			</div>
+			<div class="grid-item volunteer col s12 m6 l3">
+				<!-- <div class='col s12 m6 l3'> -->
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag('volunteer1.jpg')%>
+		              <span class="card-title">Card Title</span>
+		              </div>
+		            <div class="card-content">
+		              <p>I am a very simple card. I am good at containing small bits of information.
+		              I am convenient because I require little markup to use effectively.</p>
+		            </div>
+		            <div class="card-action">
+		              <a href="#">This is a link</a>
+		            </div>
+		          </div>
+		      <!--   </div> -->
+			</div>
+			<div class="grid-item volunteer col s12 m6 l3">
+				<!-- <div class='col s12 m6 l3'> -->
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag('volunteer1.jpg')%>
+		              <span class="card-title">Card Title</span>
+		              </div>
+		            <div class="card-content">
+		              <p>I am a very simple card. I am good at containing small bits of information.
+		              I am convenient because I require little markup to use effectively.</p>
+		            </div>
+		            <div class="card-action">
+		              <a href="#">This is a link</a>
+		            </div>
+		          </div>
+		      <!--   </div> -->
+			</div>
+			<div class="grid-item yours col s12 m6 l3">
+				<!-- <div class='col s12 m6 l3'> -->
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag('volunteer1.jpg')%>
+		              <span class="card-title">Card Title</span>
+		              </div>
+		            <div class="card-content">
+		              <p>I am a very simple card. I am good at containing small bits of information.
+		              I am convenient because I require little markup to use effectively.</p>
+		            </div>
+		            <div class="card-action">
+		              <a href="#">This is a link</a>
+		            </div>
+		          <!-- </div>
+ -->		        </div>
+			</div>
+				<div class="grid-item yours col s12 m6 l3">
+				<!-- <div class='col s12 m6 l3'> -->
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag('volunteer1.jpg')%>
+		              <span class="card-title">Card Title</span>
+		              </div>
+		            <div class="card-content">
+		              <p>I am a very simple card. I am good at containing small bits of information.
+		              I am convenient because I require little markup to use effectively.</p>
+		            </div>
+		            <div class="card-action">
+		              <a href="#">This is a link</a>
+		            </div>
+		          <!-- </div>
+ -->		        </div>
+			</div>
+			  
+  		</div>
 		
-		<div class='col s12 m6 l3'>
-		 <div class="card">
-            <div class="card-image">
-              <%=image_tag('volunteer1.jpg')%>
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-
-		<div id="eventsImg2" class="col s12 m6 l3 border">EVENT2</div>
 		
 	</div>
 
