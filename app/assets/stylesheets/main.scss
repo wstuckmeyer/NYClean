@@ -135,6 +135,7 @@ a:visited{
     z-index: -100;
 }
 #nav2{
+	position:sticky;
 	li{
 		a{
 			color:black;
@@ -143,4 +144,10 @@ a:visited{
 }
 select{
 	display: block !important;
+}
+#create{
+	position:fixed;
+	margin-left:4%;
+	margin-top:4%;
+	color:$dark-grey;
 }

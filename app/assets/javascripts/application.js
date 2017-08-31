@@ -25,7 +25,7 @@
 $( document ).ready(function(){
 	 $(".button-collapse").sideNav();
 
-	 $('select').material_select();
+	
 	 $('.grid').isotope({
   // options
   itemSelector: '.grid-item',
