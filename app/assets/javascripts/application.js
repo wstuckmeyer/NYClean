@@ -9,11 +9,12 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+
 //= require jquery-3.2.1.js
-//= require moment 
+ //=require isotope.js
 
 //= require rails-ujs
-//= require fullcalendar
+
 
 //= require turbolinks
 //= require materialize-sprockets
@@ -21,5 +22,17 @@
 $( document ).ready(function(){
 	 $(".button-collapse").sideNav();
 	 $('select').material_select();
-	 $('#calendar').fullCalendar({});
+	 $('.grid').isotope({
+  // options
+  itemSelector: '.grid-item',
+  layoutMode: 'fitRows'
+});
+	 var $grid = $('.grid').isotope({
+  // options
+});
+	 $('.filter-button-group').on( 'click', 'button', function() {
+  var filterValue = $(this).attr('data-filter');
+  $grid.isotope({ filter: filterValue });
+});
+
 })
