@@ -28,16 +28,16 @@
 	      <a href="#" class="brand-logo"><%=image_tag('whitelogo.png')%></a>
 	      <a  data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 	      <ul id="nav-mobile" class="right hide-on-med-and-down">
-	        <li><a class ='waves-effect waves-yellow btn cyan lighten-1' href="#">Start a Project</a></li>
-	        <li><%=link_to 'Neighborhoods', projects_path%></li>
-	        <li><%=link_to 'Home', user_path(current_user)%></li>
-	        <li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+	        <li><a class ='waves-effect waves-yellow btn cyan lighten-1' href="projects/new">Start a Project</a></li>
+	        <li><%=link_to 'Neighborhoods', projects_path %></li>
+	        <li><%=link_to 'Home', user_path(current_user) %></li>
+	        <li><%=link_to "Logout", destroy_user_session_path, method: :delete %></li>
 	      </ul>
 	      <ul class="side-nav" id="mobile-demo">
 	        <li><a class = ' btn waves-effect waves-yellow btn'' href="#">Start a project</a></li>
-	        <li><%=link_to 'Neighborhoods', projects_path%></li>
+	        <li><%=link_to 'Neighborhoods', projects_path %></li>
 	        <li><a class='navlink' href="#">Home</a></li>
-	        <li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+	        <li><%=link_to "Logout", destroy_user_session_path, method: :delete %></li>
      	 </ul>
 	    </div>
 	  </nav>
