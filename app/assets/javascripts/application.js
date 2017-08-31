@@ -9,12 +9,32 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+
+//= require isotope.js
+
 //= require jquery-3.2.1.js
+ //=require isotope.js
+
 //= require rails-ujs
+
+
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
 $( document ).ready(function(){
 	 $(".button-collapse").sideNav();
 	 $('select').material_select();
+	 $('.grid').isotope({
+  // options
+  itemSelector: '.grid-item',
+  layoutMode: 'fitRows'
+});
+	 var $grid = $('.grid').isotope({
+  // options
+});
+	 $('.filter-button-group').on( 'click', 'button', function() {
+  var filterValue = $(this).attr('data-filter');
+  $grid.isotope({ filter: filterValue });
+});
+
 })
