@@ -38,8 +38,8 @@ $(document).ready(function() {
 
 	}
 
-	var locationForm = document.getElementById('location-form');
-	locationForm.addEventListener('submit', geoCode);	
+	var locationForm = document.getElementById('deets');
+	locationForm.addEventListener('project-submit', geoCode);	
 });
 
 
