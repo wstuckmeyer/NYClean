@@ -118,3 +118,26 @@ a:visited{
 #drphood{
 	margin-bottom:2%;
 }
+#deets{
+	background-color:rgba(233,234,234, 0.7);
+	border-radius: 5px;
+}
+#projectbackground{
+	background-image: image-url('james.jpg');
+	margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-size:cover;
+    z-index: -100;
+}
+#nav2{
+	li{
+		a{
+			color:black;
+		}
+	}
+}
