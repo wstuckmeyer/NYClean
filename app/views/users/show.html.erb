@@ -13,8 +13,7 @@
 		<div class="button-group filter-button-group ">
 		  <button class='btn-large cyan lighten-1' data-filter="*">show all</button>
 		  <button class='btn-large cyan lighten-1' data-filter=".yours">Your Events</button>
-		  <button id='volbtn' class='btn-large cyan lighten-1' data-filter=".volunteer">Volunteering</button>
-		  
+		  <button id='volbtn' class='btn-large cyan lighten-1' data-filter=".volunteer">Volunteering</button> 
 		</div>
 	</div>
 	<div class='row' id='cards'>
@@ -111,4 +110,37 @@
 		
 	</div>
 
-
+<%@volunteer = Volunteer.where(volunteer_id: current_user.id)%>
+	<%@volunteer.each do |t|%>
+		<div class="grid-item yours col s12 m6 l3 volunter">			
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag(t.avatar)%>
+		              <span class="card-title"><%=t.name%></span>
+		              </div>
+		            <div class="card-content">
+		              <p><%=t.description%></p>
+		            </div>
+		            <div class="card-action">
+		              <%=link_to 'View', t, project_path(t)%>
+		            </div>		  
+ 		        </div>
+			</div>
+	<%end%>
+<%@yours = Project.where(user_id: current_user.id)%>
+	<%@yours.each do |t|%>
+		<div class="grid-item yours col s12 m6 l3 yours">			
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag(t.avatar)%>
+		              <span class="card-title"><%=t.name%></span>
+		              </div>
+		            <div class="card-content">
+		              <p><%=t.description%></p>
+		            </div>
+		            <div class="card-action">
+		              <%=link_to 'View', t, project_path(t)%>
+		            </div>		  
+ 		        </div>
+			</div>
+	<%end%>

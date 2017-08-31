@@ -1,13 +1,144 @@
 <div class='row'>
 	<div class="col s12 m12 l12 left-align ">
-		<h3 id='welcome'>Find a Project</h3>	
+		<h3 id='find'>Find a Project</h3>	
 </div>
-<div class="row">
-		<a class='dropdown-button btn' href='#' data-activates='dropdown3'>Drop Me!</a>
-		<div class="button-group filter-button-group ">
-		  <button class='btn-large cyan lighten-1' data-filter="*">show all</button>
-		  <button class='btn-large cyan lighten-1' data-filter=".yours">Your Events</button>
-		  <button id='volbtn' class='btn-large cyan lighten-1' data-filter=".volunteer">Volunteering</button>
-		  
-		</div>
+<div class='row'>
+	<div class='col s12 m12 l4'>
+		
+  	</div>
+ </div>
+ <a id='dropdownbtn' class='dropdown-button btn cyan lighten-1' data-activates='dropdown3'>Neighborhoods</a>
+	<div id='dropdown3' class="button-group filter-button-group dropdown-content">
+		 <button class='drp btn transparent z-depth-0' data-filter="*">All</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".Chelsea">Chelsea</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".WV">West Village</button> 
+		 <button class='drp btn transparent z-depth-0' data-filter=".HK">Hell's Kitchen</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".Midtown">Midtown</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".ME">Midtown East</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".EV">East Village</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".LES">Lower East Side</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".WV">West Village</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".GV">The Village</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".SoHo">SoHo</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".Tribeca">Tribeca</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".Chinatown">Chinatown</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".FD">FiDi</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".UWS">Upper West Side</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".MH">Morningside</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".Harlem">Harlem</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".EH">East Harlem</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".SH">Spanish Harlem</button>
+		 
 	</div>
+
+	
+	<div class='row' id='cards'>
+        <div class="grid"
+			  data-isotope='{ "itemSelector": ".grid-item", "masonry": { "columnWidth": 200 } }'>
+			<div class="grid-item yours col s12 m6 l3">
+				<!-- <div class='col s12 m6 l3'> -->
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag('volunteer1.jpg')%>
+		              <span class="card-title">Card Title</span>
+		              </div>
+		            <div class="card-content">
+		              <p>I am a very simple card. I am good at containing small bits of information.
+		              I am convenient because I require little markup to use effectively.</p>
+		            </div>
+		            <div class="card-action">
+		              <a href="#">This is a link</a>
+		            </div>
+		          <!-- </div>
+ -->		        </div>
+			</div>
+			<div class="grid-item WV col s12 m6 l3">
+				<!-- <div class='col s12 m6 l3'> -->
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag('volunteer1.jpg')%>
+		              <span class="card-title">Card Title</span>
+		              </div>
+		            <div class="card-content">
+		              <p>I am a very simple card. I am good at containing small bits of information.
+		              I am convenient because I require little markup to use effectively.</p>
+		            </div>
+		            <div class="card-action">
+		              <a href="#">This is a link</a>
+		            </div>
+		          </div>
+		      <!--   </div> -->
+			</div>
+			<div class="grid-item Chelsea col s12 m6 l3">
+				<!-- <div class='col s12 m6 l3'> -->
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag('volunteer1.jpg')%>
+		              <span class="card-title">Card Title</span>
+		              </div>
+		            <div class="card-content">
+		              <p>I am a very simple card. I am good at containing small bits of information.
+		              I am convenient because I require little markup to use effectively.</p>
+		            </div>
+		            <div class="card-action">
+		              <a href="#">This is a link</a>
+		            </div>
+		          </div>
+		      <!--   </div> -->
+			</div>
+			<div class="grid-item yours col s12 m6 l3">
+				<!-- <div class='col s12 m6 l3'> -->
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag('volunteer1.jpg')%>
+		              <span class="card-title">Card Title</span>
+		              </div>
+		            <div class="card-content">
+		              <p>I am a very simple card. I am good at containing small bits of information.
+		              I am convenient because I require little markup to use effectively.</p>
+		            </div>
+		            <div class="card-action">
+		              <a href="#">This is a link</a>
+		            </div>
+		          <!-- </div>
+ -->		        </div>
+			</div>
+				<div class="grid-item yours col s12 m6 l3">
+				<!-- <div class='col s12 m6 l3'> -->
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag('volunteer1.jpg')%>
+		              <span class="card-title">Card Title</span>
+		              </div>
+		            <div class="card-content">
+		              <p>I am a very simple card. I am good at containing small bits of information.
+		              I am convenient because I require little markup to use effectively.</p>
+		            </div>
+		            <div class="card-action">
+		              <a href="#">This is a link</a>
+		            </div>
+		          <!-- </div>
+ -->		        </div>
+			</div>
+			  
+  		</div>
+		
+		
+	</div>
+	<%@projects = Project.all%>
+	<%@projects.each do |t|%>
+		<div class="grid-item yours col s12 m6 l3 <%=t.neighborhood%>">			
+					<div class="card">
+		              <div class="card-image">
+		             	 <%=image_tag(t.avatar)%>
+		              <span class="card-title"><%=t.name%></span>
+		              </div>
+		            <div class="card-content">
+		              <p><%=t.description%></p>
+		            </div>
+		            <div class="card-action">
+		              <%=link_to 'View', t, project_path(t)%>
+		            </div>		  
+ 		        </div>
+			</div>
+	<%end%>
