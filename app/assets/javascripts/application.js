@@ -33,8 +33,27 @@ $( document ).ready(function(){
   // options
 });
 	 $('.filter-button-group').on( 'click', 'button', function() {
-  var filterValue = $(this).attr('data-filter');
-  $grid.isotope({ filter: filterValue });
+  		var filterValue = $(this).attr('data-filter');
+  		$grid.isotope({ filter: filterValue });
+});
+
+$(function() {
+
+    var $container = $('#container'),
+        $select = $('#filters select');
+
+    $container.isotope({
+        itemSelector: '.item'
+    });
+
+    $select.change(function() {
+        var filters = $(this).val();
+;
+        $container.isotope({
+            filter: filters
+        });
+    });
+
 });
 
 })
