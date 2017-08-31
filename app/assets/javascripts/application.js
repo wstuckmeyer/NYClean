@@ -10,13 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 
-//= require isotope.js
+
+
 
 //= require jquery-3.2.1.js
- //=require isotope.js
-
+//= require isotope.js
+//= require maps.js
 //= require rails-ujs
-
 
 //= require turbolinks
 //= require materialize-sprockets
