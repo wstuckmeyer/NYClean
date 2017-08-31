@@ -8,6 +8,11 @@ $light-grey: #aebaa5;
 	font-family: 'Comfortaa';
 	src:font-url("Comfortaa.ttf");
 }
+
+.border{
+	border: 2px solid black;
+}
+
 .navlink{
 	color: $dark-grey;
 }
