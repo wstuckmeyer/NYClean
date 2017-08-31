@@ -11,17 +11,34 @@
   <body>
   	
   	<% if current_user %>
-  	<div id='backgroundimage'></div>
-	  	<ul id="dropdown1" class="dropdown-content">
-		  <li><a href="#!">Chelsea</a></li>
-		  <li><a href="#!">East Villiage</a></li>
-		  <li><a href="#!">Harlem</a></li>
-		</ul>
-		<ul id="dropdown2" class="dropdown-content">
-		  <li><a href="#!">Chelsea</a></li>
-		  <li><a href="#!">East Villiage</a></li>
-		  <li><a href="#!">Harlem</a></li>
-		</ul>
+  		<%if current_page?(url_for(:new_project))%>
+  				<div id='projectbackground'></div>
+  				<nav class='transparent z-depth-0'>
+	    			<div class="nav-wrapper transparent" id='nav2'>
+	      				<a href="#" class="brand-logo"><%=image_tag('whitelogo.png')%></a>
+	      				<a  data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+	      				<ul id="nav-mobile" class="right hide-on-med-and-down">
+	        
+	        				
+	        				<li><%=link_to 'Neighborhoods', projects_path%></li>
+	        				<li><%=link_to 'Home', user_path(current_user)%></li>
+	        				<li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+	      				</ul>
+	      				<ul class="side-nav" id="mobile-demo">
+	        				<li><a class = ' btn waves-effect waves-yellow btn'' href="#">Start a project</a></li>
+	        				<li><%=link_to 'Neighborhoods', projects_path%></li>
+	        				<li><a class='navlink' href="#">Home</a></li>
+	        				<li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+     	 				</ul>
+	    			</div>
+	  			</nav>
+
+
+  			<%else%>
+  				<div id='backgroundimage'></div>
+  		
+  	
+	  	
 
 	  <nav class='transparent z-depth-0'>
 	    <div class="nav-wrapper transparent" id='nav'>
@@ -32,6 +49,11 @@
 	        <li><%=link_to 'Neighborhoods', projects_path %></li>
 	        <li><%=link_to 'Home', user_path(current_user) %></li>
 	        <li><%=link_to "Logout", destroy_user_session_path, method: :delete %></li>
+	        
+	        <li><%=link_to 'Start a Project', new_project_path, class: 'waves-effect waves-yellow btn cyan lighten-1'%></li>
+	        <li><%=link_to 'Neighborhoods', projects_path%></li>
+	        <li><%=link_to 'Home', user_path(current_user)%></li>
+	        <li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
 	      </ul>
 	      <ul class="side-nav" id="mobile-demo">
 	        <li><a class = ' btn waves-effect waves-yellow btn'' href="#">Start a project</a></li>
@@ -41,6 +63,7 @@
      	 </ul>
 	    </div>
 	  </nav>
+	  <%end%>
      <%end%>
      <% puts current_user.inspect%>
     <%= yield %>
