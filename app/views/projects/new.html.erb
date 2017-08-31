@@ -1,19 +1,13 @@
 <div class='row'>
 	<div class="col s12 m12 l12 left-align ">
 		<h3 id='welcome'>Create a Project</h3>	
-	</div>
-	<div class="row">
-		<a class='dropdown-button btn' href='#' data-activates='dropdown3'>Drop Me!</a>
-		<div class="button-group filter-button-group ">
-		  <button class='btn-large cyan lighten-1' data-filter="*">show all</button>
-		  <button class='btn-large cyan lighten-1' data-filter=".yours">Your Events</button>
-		  <button id='volbtn' class='btn-large cyan lighten-1' data-filter=".volunteer">Volunteering</button>
-		</div>
+
+
 	</div>
 </div>
 
 	<div class="row">
-		<div class="col s12 m6 l8">
+		<div class="col s12 m6 l6">
 			<h5>Enter the location of your project by neighborhood, address or park: </h5>
 
 			<!-- form to enter location -->
@@ -29,11 +23,22 @@
 		</div>
 
 
-<!-- div for lat+lng -->
-
-
-
 		<!-- right side of page -->
-		<div class="col s12 m6 l4 border">Enter the project details!!</div>
-		
-	</div>
+		<div class="col s12 m6 l6 border">Enter the project details!!
+			
+			<!-- form to create a new project -->
+			<%= form_for Project.new do |f| %><br>
+			<%= f.label :Project_name %><br><br>
+			<%= f.text_field :name %><br>
+			<%= f.label :Project_description %><br>
+			<%= f.text_field :description %><br><br>
+			<%= f.label :Date %><br>
+			<%= f.date_field :date %><br><br>
+			<%= f.label :Photo_image %><br>
+			<%= f.file_field :photo %><br><br>
+			<%= f.label :Volunteers %>
+			<%= f.number_field :people %>
+			<span class='waves-effect waves-light btn'><%= f.submit %></span><br><br>
+		<% end %>
+		<%= link_to "Back", projects_path %></button><br><br>
+		</div>
