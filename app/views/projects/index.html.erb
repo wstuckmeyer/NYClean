@@ -10,24 +10,25 @@
  <a id='dropdownbtn' class='dropdown-button btn cyan lighten-1' data-activates='dropdown3'>Neighborhoods</a>
 	<div id='dropdown3' class="button-group filter-button-group dropdown-content">
 		 <button class='drp btn transparent z-depth-0' data-filter="*">All</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".1">Chelsea</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".7">West Village</button> 
-		 <button class='drp btn transparent z-depth-0' data-filter=".2">Hell's Kitchen</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".3">Midtown</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".4">Midtown East</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".5">East Village</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".6">Lower East Side</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".7">West Village</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".8">The Village</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".9">SoHo</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".10">Tribeca</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".11">Chinatown</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".12">FiDi</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".13">Upper West Side</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".14">Morningside</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".15">Harlem</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".16">East Harlem</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".17">Spanish Harlem</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".chelsea">Chelsea</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".westvillage">West Village</button> 
+		 <button class='drp btn transparent z-depth-0' data-filter=".midtownwest">Hell's Kitchen</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".midtown">Midtown</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".midtowneast">Midtown East</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".eastvillage">East Village</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".lowereastside">Lower East Side</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".westvillage">West Village</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".greenwichvillage">The Village</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".soho">SoHo</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".tribeca">Tribeca</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".chinatown">Chinatown</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".fidi">FiDi</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".upperwestside">Upper West Side</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".morningsideheights">Morningside</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".harlem">Harlem</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".eastharlem">East Harlem</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".uppereastside">Upper East Side</button>
+
 		 
 	</div>
 
@@ -120,25 +121,25 @@
 		          <!-- </div>
  -->		        </div>
 			</div>
-			  
+			<%@projects = Project.all%>
+		<%@projects.each do |t|%>
+			<div class="grid-item dynamic col s12 m6 l3 <%=t.location%>">			
+						<div class="card">
+			              <div class="card-image">
+			             	 <%=image_tag(t.photos, height: 252)%>
+			              	<span class="card-title"><%=t.name%></span>
+			              </div>
+			            <div class="card-content">
+			              <p><%=t.description%></p>
+			            </div>
+			            <div class="card-action">
+			              <%=link_to 'View', project_path(t)%>
+			            </div>		  
+	 		        </div>
+				</div>
+		<%end%>	  
   		</div>
 		
 		
 	</div>
-	<%@projects = Project.all%>
-	<%@projects.each do |t|%>
-		<div class="grid-item yours col s12 m6 l3 <%=t.neighborhood%>">			
-					<div class="card">
-		              <div class="card-image">
-		             	 <%=image_tag(t.avatar)%>
-		              <span class="card-title"><%=t.name%></span>
-		              </div>
-		            <div class="card-content">
-		              <p><%=t.description%></p>
-		            </div>
-		            <div class="card-action">
-		              <%=link_to 'View', t, project_path(t)%>
-		            </div>		  
- 		        </div>
-			</div>
-	<%end%>
+	

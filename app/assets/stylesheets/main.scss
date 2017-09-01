@@ -3,7 +3,10 @@ $accent:  #2EC2DD;
 $dark-grey: #585a5d;
 $white: #e9eaea;
 $light-grey: #aebaa5;
-
+@font-face{
+	font-family: 'Dotum';
+	src:font-url('UnDotumBold.ttf');
+}
 @font-face{
 	font-family: 'Comfortaa';
 	src:font-url("Comfortaa.ttf");
@@ -92,7 +95,10 @@ a:visited{
 .btn-large{
 	margin-left:2%;
 }
-@media(max-width:672px){
+@media(max-width:600px){
+	#signupform, #newsession{
+		margin-top: 40%;
+	}
 	#volbtn{
 		margin-top:5%;
 	}
@@ -150,4 +156,19 @@ select{
 	margin-left:4%;
 	margin-top:4%;
 	color:$dark-grey;
+}
+.dynamic{
+	.card{
+		 height: 56vh;
+			.card-content{
+				p{
+					word-wrap: break-word;
+				}	
+			}
+			.card-action{
+				   
+			}
+	}
+	
+	
 }
