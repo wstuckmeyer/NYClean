@@ -105,42 +105,44 @@
  -->		        </div>
 			</div>
 			  
-  		</div>
+  		
 		
 		
-	</div>
+	
 
 <%@volunteer = Volunteer.where(volunteer_id: current_user.id)%>
 	<%@volunteer.each do |t|%>
-		<div class="grid-item yours col s12 m6 l3 volunter">			
+		<div class="grid-item yours col s12 m6 l3 volunter dynamic">			
 					<div class="card">
 		              <div class="card-image">
-		             	 <%=image_tag(t.avatar)%>
+		             	 <%=image_tag(t.photos, height: 252)%>
 		              <span class="card-title"><%=t.name%></span>
 		              </div>
 		            <div class="card-content">
 		              <p><%=t.description%></p>
 		            </div>
 		            <div class="card-action">
-		              <%=link_to 'View', t, project_path(t)%>
+		              <%=link_to 'View',project_path(t)%>
 		            </div>		  
  		        </div>
 			</div>
 	<%end%>
 <%@yours = Project.where(user_id: current_user.id)%>
 	<%@yours.each do |t|%>
-		<div class="grid-item yours col s12 m6 l3 yours">			
+		<div class="grid-item yours col s12 m6 l3 yours dynamic">			
 					<div class="card">
 		              <div class="card-image">
-		             	 <%=image_tag(t.avatar)%>
+		             	 <%=image_tag(t.photos, height: 252)%>
 		              <span class="card-title"><%=t.name%></span>
 		              </div>
 		            <div class="card-content">
 		              <p><%=t.description%></p>
 		            </div>
 		            <div class="card-action">
-		              <%=link_to 'View', t, project_path(t)%>
+		              <%=link_to 'View',project_path(t)%>
 		            </div>		  
  		        </div>
 			</div>
 	<%end%>
+</div>
+</div>
