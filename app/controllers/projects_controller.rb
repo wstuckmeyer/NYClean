@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
+
 		@projects = Project.find_by_id(params[:id])
 	end
 
