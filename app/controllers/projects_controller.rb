@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 	def index
-		@projects = Project.all.order("created_at DESC")
+		@projects = Project.all
 	end
 
 	def new
@@ -8,18 +8,14 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		@projects = Project.all
+		@projects = Project.find_by_id(params[:id])
 	end
 
 	def create
 		@current_user = current_user.id
 
 		@projects = Project.create(name: params[:project][:name], description: params[:project][:description], date: params[:project][:date], photos: params[:project][:photo], location: params[:project][:location], people: params[:project][:people], user_id: current_user)
-		if @project.save
-			redirect_to project_path
-		else
-			render 'new'
-
+		redirect_to @projects
 	end
 
 	# def update

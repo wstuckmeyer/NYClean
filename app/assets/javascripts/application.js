@@ -15,7 +15,6 @@
 
 //= require jquery-3.2.1.js
 //= require isotope.js
-//= require maps.js
 //= require rails-ujs
 
 //= require turbolinks
