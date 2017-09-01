@@ -11,13 +11,19 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
+
+		# def progress
+  # 			Volunteers.where(project_id: params[:id]) / params[:id] * 100
+		# end
+
 		@projects = Project.find_by_id(params[:id])
+
 	end
 
 	def create
 		@current_user = current_user.id
 
-		@projects = Project.create(name: params[:project][:name], description: params[:project][:description], date: params[:project][:date], photos: params[:project][:photo], location: params[:project][:location], people: params[:project][:people], user_id: current_user)
+		@projects = Project.create(name: params[:project][:name], description: params[:project][:description], date: params[:project][:date], photos: params[:project][:photos], location: params[:project][:location], people: params[:project][:people], user_id: current_user)
 		redirect_to @projects
 	end
 
@@ -40,8 +46,7 @@ class ProjectsController < ApplicationController
 		redirect_to user_path
 	end
 
-
-	private
+private
 
 	def project_params
 		params.require(:project).permit(:name, :description, :date, :photo, :people, :user_id)

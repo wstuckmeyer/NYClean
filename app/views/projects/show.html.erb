@@ -1,14 +1,17 @@
+
 <% @project = Project.find(params[:id]) %>
+<% @vols = Volunteer.where(project_id: @project.id)%>
+<% if @vols.length == 0 %>
+	<% @width = 0 %>
+<%else%>
+	<%@width = @project.people / @vols.length * 100 %>
+<%end%>
 
 <div class="mapPage">
-	<div class="row s12 border"><h4><%= @project.name %></h4></div>
-
+	<div class="row s12" id='projecttitle'><%=@project.name%></div>
+	<br>
 	<div class="row">
 
-
-		<div class="col s12 m6 l6 border"><p>left side</p></div>
-			<div class="col s12 m6 l6 border">
-			<p>right side</p>
 
 		<!-- enables edit and destroy ONLY if user is logged in -->
 		<% if user_signed_in? %>
@@ -16,17 +19,35 @@
 		
 		<%= link_to "Edit", edit_project_path(@project) %>
 		<%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>
-			</div>
-				<% end %>
+
+		<div class="col s12 m6 l6 "><%=image_tag(@project.photos, width: '70%')%></div>
+			<div class="col s12 m6 l6 deets" id='projectdeets'>
+			<h4>About this project</h4>
+			<p><%=@project.description%></p>
+			<br>
+			<a class='btn cyan lighten-1'>Volunteer</a>
+			<div class="pb">
+			<div class="pb-title">Volunteers</div>
+			<div>
+			<div class="pb-frame" title="$3,000 / 30% towards goal" >
+			<div class="pb-fill" style="width:<%=@width%>;">&nbsp;</div>
+		</div>
+		<span class="pb-caption"><%=@vols.length%></span>
+		<span class="pb-caption"><%=@project.people%></span>
+	</div>
+	<div style="clear: both;"></div>
+	<div style="margin: 2px 0 0 0; text-align: right;">
+		
+	</div>
+</div>
+			<% end %>
 			<% end %>
 	</div>
 
 	<div id="map">MAP DIV</div>
 </div>
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2RCgQ2GZ4w0zMxOmbC2_fOvQt26wpSSA"
-			async defer></script>
+
 
 <script type="text/javascript">
 				

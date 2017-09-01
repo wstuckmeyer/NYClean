@@ -16,7 +16,7 @@
 //= require jquery-3.2.1.js
 //= require isotope.js
 //= require rails-ujs
-
+//=require_self
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
