@@ -9,6 +9,9 @@ class ProjectsController < ApplicationController
 
 	def show
 		@projects = Project.all
+		def progress
+  			Volunteers.where(project_id: params[:id]) / params[:id] * 100
+		end
 	end
 
 	def create
