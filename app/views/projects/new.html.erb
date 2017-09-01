@@ -32,9 +32,9 @@
 			<%= f.number_field :people %>
 			<%= f.label :neighborhood%><br>
           
-            <%= f.select :location,  options_for_select([['Chelsea', 'chelsea'],["Hell's Kitchen", 'midtownwest'], ['Midtown', 'midtown'], ['Midtown East', 'midtowneast'], ['East Village', 'eastvillage'], ['Lower East Side', 'lowereastside'], ['West Village', 7], ["Greenwich Village", 'greenwichvillage'], ['SoHo', 'soho'], ['Tribeca', 'tribeca'], ['Chinatown', 'chinatown'], ['Financial District', 'fidi' ], ['Upper West Side', 'upperwestside'], ['Morningside Heights', 'morningsideheights'], ['Harlem', 'harlem'], ['East Harlem', 'eastharlem'], ['Upper East Side', 'uppereastside']])%>
+            <%= f.select :location, options_for_select([['Chelsea', 'chelsea'],["Hell's Kitchen", 'midtownwest'], ['Midtown', 'midtown'], ['Midtown East', 'midtowneast'], ['East Village', 'eastvillage'], ['Lower East Side', 'lowereastside'], ['West Village', 7], ["Greenwich Village", 'greenwichvillage'], ['SoHo', 'soho'], ['Tribeca', 'tribeca'], ['Chinatown', 'chinatown'], ['Financial District', 'fidi' ], ['Upper West Side', 'upperwestside'], ['Morningside Heights', 'morningsideheights'], ['Harlem', 'harlem'], ['East Harlem', 'eastharlem'], ['Upper East Side', 'uppereastside']])%>
             <br>
-			<span class='waves-effect waves-light cyan lighten-1 btn'><%= f.submit %></span><br><br>
+			<span class='waves-effect waves-light cyan lighten-1 btn'><%= f.submit id:"projectSubmit" %></span><br><br>
 			<% end %>
 
 		<%= link_to "Back", projects_path %></button><br><br>

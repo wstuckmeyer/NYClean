@@ -1,1 +1,63 @@
-<div id="map"></div>
+<% @project = Project.find(params[:id]) %>
+
+<div class="mapPage">
+	<div class="row s12 border">Congrat's you've created the</div>
+
+	<div class="row">
+		
+
+		<div class="col s12 m6 l6 border"><p>left side</p></div>
+			<div class="col s12 m6 l6 border">
+			<p>right side</p>
+			</div>
+	</div>
+
+	<div id="map">MAP DIV</div>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2RCgQ2GZ4w0zMxOmbC2_fOvQt26wpSSA"
+			async defer></script>
+
+<script type="text/javascript">
+				
+	var lat;
+	var lng;
+
+	geoCode();
+
+	function geoCode(){
+
+		var location = '<%= @project.location %>';
+		axios.get('https://maps.googleapis.com/maps/api/geocode/json?', {
+			params:{
+				address: location,
+				key: 'AIzaSyC2RCgQ2GZ4w0zMxOmbC2_fOvQt26wpSSA'
+			}
+		})
+		.then(function(response){
+			console.log(response);
+			//log full response
+			var formattedAddress = response.data.results[0].formatted_address;
+			var formattedAddressOutput = `${formattedAddress}`;
+
+			var addressComponents = response.data.results[0].address_components;
+			var addressComponentsOutput = '<ul>';
+			for(var i = 0; i < addressComponents.length; i++){
+				addressComponentsOutput += `${addressComponents[i].types[0]}: ${addressComponents[i].long_name}`;
+			}
+
+			lat = response.data.results[0].geometry.location.lat;
+			lng = response.data.results[0].geometry.location.lng;
+		}).then(function(){
+			var map = new google.maps.Map(document.getElementById('map'), {
+				center: {lat: lat, lng: lng},
+				zoom: 15
+			});
+		})
+		.catch(function(error){
+			console.log(error);
+		})
+
+	}
+			</script>

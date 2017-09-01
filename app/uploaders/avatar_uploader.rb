@@ -23,7 +23,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-   
+
   #
   # def scale(width, height)
   #   # do something

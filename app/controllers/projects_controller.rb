@@ -1,24 +1,27 @@
 class ProjectsController < ApplicationController
 	def index
-		@projects = Project.all.order("created_at DESC")
+		@projects = Project.all
 	end
 
 	def new
-		@projects = Project.new
+		@project = Project.new
 	end
 
 	def show
-		@projects = Project.all
+
 		def progress
   			Volunteers.where(project_id: params[:id]) / params[:id] * 100
 		end
+=======
+		@projects = Project.find_by_id(params[:id])
+
 	end
 
 	def create
 		@current_user = current_user.id
-		@projects = Project.create(name: params[:project][:name], description: params[:project][:description], date: params[:project][:date], photos: params[:project][:photos], location: params[:project][:location], people: params[:project][:people], user_id: current_user)
 
-		redirect_to project_path
+		@projects = Project.create(name: params[:project][:name], description: params[:project][:description], date: params[:project][:date], photos: params[:project][:photo], location: params[:project][:location], people: params[:project][:people], user_id: current_user)
+		redirect_to @projects
 	end
 
 	# def update
