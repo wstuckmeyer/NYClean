@@ -86,12 +86,15 @@ a:visited{
     z-index: -100;
     height:60%;
 }
-#upcomingEvents, #welcome, #projecttitle{
+#upcomingEvents, #welcome{
 	color:$white;
 	font-family: 'title';
 	letter-spacing: 5px;
 }
 #projecttitle{
+	color:$dark-grey;
+	font-family: 'title';
+	letter-spacing: 5px;
 	margin-left:1%;
 	margin-top: 4%;
 	font-size: 5em;
@@ -230,4 +233,7 @@ select{
 .pb-caption-r{
 	float: right; 
 	font-size: 12px;
+}
+.mapPage{
+	margin-top: 5%;
 }

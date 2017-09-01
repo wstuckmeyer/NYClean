@@ -10,26 +10,25 @@
 <div class="mapPage">
 	<div class="row s12" id='projecttitle'><%=@project.name%></div>
 	<br>
-	<div class="row">
+	<div class="row ">
 
 
 		<!-- enables edit and destroy ONLY if user is logged in -->
-		<% if user_signed_in? %>
-		<% if @project.user_id == current_user.id %>
 		
-		<%= link_to "Edit", edit_project_path(@project) %>
-		<%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>
-
-		<div class="col s12 m6 l6 "><%=image_tag(@project.photos, width: '70%')%></div>
-			<div class="col s12 m6 l6 deets" id='projectdeets'>
+		<div class="col s12 m6 l5  deets" id='projectdeets'>
+			<% if @project.user_id == current_user.id %>
+				<%= link_to "Edit", edit_project_path(@project) %>
+				<%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>
+			<%end%>
 			<h4>About this project</h4>
 			<p><%=@project.description%></p>
 			<br>
-			<a class='btn cyan lighten-1'>Volunteer</a>
+			<%= link_to 'Volunteer', new_volunteer_path, class: 'btn cyan lighten-1'%>
+			<br><br>
 			<div class="pb">
-				<div class="pb-title">Volunteers</div>
+				<div class="pb-title center-align">Volunteers</div>
 				<div>
-					<div class="pb-frame" title="$3,000 / 30% towards goal" >
+					<div class="pb-frame"  >
 						<div class="pb-fill" style="width:<%=@width%>;">&nbsp;</div>
 					</div>
 						<span class="pb-caption"><%=@vols.length%></span>
@@ -40,12 +39,17 @@
 
 				</div>
 			</div>
-			<% end %>
-			<% end %>
+			<div  id="map">MAP DIV</div>
 			</div>
+		
 
-	<div id="map">MAP DIV</div>
+		<div class="col s12 m6 l6 offset-l1 right-align "><%=image_tag(@project.photos, width: '70%')%></div>
+			
 </div>
+	<div class='row'>
+		
+	</div>
+
 
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
