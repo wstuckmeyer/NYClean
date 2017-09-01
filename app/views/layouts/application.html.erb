@@ -15,7 +15,26 @@
   				<div id='projectbackground'></div>
   				
 
-
+  		<%elsif current_page?(url_for(:project))%>		
+  			<div id='showproject'></div>
+  			 <nav class='transparent  z-depth-0'>
+	    <div class="nav-wrapper transparent" id='nav'>
+	      <a href="#" class="brand-logo"><%=image_tag('whitelogo.png')%></a>
+	      <a  data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><%=link_to 'Start a Project', new_project_path, class: 'waves-effect waves-yellow btn cyan lighten-1'%></li>
+	        <li><%=link_to 'Neighborhoods', projects_path%></li>
+	        <li><%=link_to 'Home', user_path(current_user)%></li>
+	        <li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+	      </ul>
+	      <ul class="side-nav" id="mobile-demo">
+	        <li><a class = ' btn waves-effect waves-yellow btn'' href="#">Start a project</a></li>
+	        <li><%=link_to 'Neighborhoods', projects_path %></li>
+	        <li><a class='navlink' href="#">Home</a></li>
+	        <li><%=link_to "Logout", destroy_user_session_path, method: :delete %></li>
+     	 </ul>
+	    </div>
+	  </nav>
   			<%else%>
   				<div id='backgroundimage'></div>
   		
@@ -44,5 +63,8 @@
      <%end%>
      <% puts current_user.inspect%>
     <%= yield %>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2RCgQ2GZ4w0zMxOmbC2_fOvQt26wpSSA"
+			async defer></script>
   </body>
 </html>

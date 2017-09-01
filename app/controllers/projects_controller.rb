@@ -9,9 +9,9 @@ class ProjectsController < ApplicationController
 
 	def show
 
-		def progress
-  			Volunteers.where(project_id: params[:id]) / params[:id] * 100
-		end
+		# def progress
+  # 			Volunteers.where(project_id: params[:id]) / params[:id] * 100
+		# end
 
 		@projects = Project.find_by_id(params[:id])
 
@@ -40,5 +40,8 @@ class ProjectsController < ApplicationController
 	# 	params.require(:project).permit(:name, :description, :date, :photo, :people, :user_id)
 	# end
 
-
+		def progress
+			@project = Project.find(params[:id])
+  			Volunteers.where(project_id: params[:id]) / @project.people  * 100
+		end
 end
