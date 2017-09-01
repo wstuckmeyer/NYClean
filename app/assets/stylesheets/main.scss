@@ -3,7 +3,10 @@ $accent:  #2EC2DD;
 $dark-grey: #585a5d;
 $white: #e9eaea;
 $light-grey: #aebaa5;
-
+@font-face{
+	font-family: 'Dotum';
+	src:font-url('UnDotumBold.ttf');
+}
 @font-face{
 	font-family: 'Comfortaa';
 	src:font-url("Comfortaa.ttf");
