@@ -10,8 +10,8 @@
 
   <body>
   	
-  	<% if current_user %>
-  		<%if current_page?(url_for(:new_project))%>
+  	<% if user_signed_in? %>
+  		<% if current_page?(url_for(:new_project))%>
   				<div id='projectbackground'></div>
   				
 
@@ -63,8 +63,5 @@
      <%end%>
      <% puts current_user.inspect%>
     <%= yield %>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2RCgQ2GZ4w0zMxOmbC2_fOvQt26wpSSA"
-			async defer></script>
   </body>
 </html>
