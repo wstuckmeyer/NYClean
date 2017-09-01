@@ -1,15 +1,24 @@
 <% @project = Project.find(params[:id]) %>
 
 <div class="mapPage">
-	<div class="row s12 border">Congrat's you've created the</div>
+	<div class="row s12 border"><h4><%= @project.name %></h4></div>
 
 	<div class="row">
-		
+
 
 		<div class="col s12 m6 l6 border"><p>left side</p></div>
 			<div class="col s12 m6 l6 border">
 			<p>right side</p>
+
+		<!-- enables edit and destroy ONLY if user is logged in -->
+		<% if user_signed_in? %>
+		<% if @project.user_id == current_user.id %>
+		
+		<%= link_to "Edit", edit_project_path(@project) %>
+		<%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>
 			</div>
+				<% end %>
+			<% end %>
 	</div>
 
 	<div id="map">MAP DIV</div>

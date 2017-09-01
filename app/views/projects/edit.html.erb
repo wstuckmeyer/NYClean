@@ -1,0 +1,42 @@
+<div class='row'>
+	<div class="col s12 m12 l12 left-align ">
+		<h4><%= @project.name %></h4>	
+
+
+	</div>
+</div>
+
+	<div class="row">
+		
+
+
+		<!-- right side of page -->
+		<div id='deets' class="offset-l6 col s12 l4 ">
+			
+			<!-- form to create a new project -->
+			<%= form_for @project do |f| %><br>
+			<%= f.label :Project_name %><br><br>
+			<%= f.text_field :name %><br>
+			<%= f.label :Project_description %><br>
+			<%= f.text_field :description %><br><br>
+			<%= f.label :Date %><br>
+			<%= f.date_field :date %><br><br>
+			<div class="file-field input-field">
+       			 <div class="btn cyan lighten-1">
+          			<span>Photo</span>
+          			<%= f.file_field :photos %>
+          		</div>
+        		<input class="file-path validate" type="text"/>
+        	</div><br><br>
+			<%= f.label :Volunteers %>
+			<%= f.number_field :people %>
+			<%= f.label :neighborhood %><br>
+          
+            <%= f.select :location, options_for_select([['Chelsea', 'chelsea'],["Hell's Kitchen", 'midtownwest'], ['Midtown', 'midtown'], ['Midtown East', 'midtowneast'], ['East Village', 'eastvillage'], ['Lower East Side', 'lowereastside'], ['West Village', 7], ["Greenwich Village", 'greenwichvillage'], ['SoHo', 'soho'], ['Tribeca', 'tribeca'], ['Chinatown', 'chinatown'], ['Financial District', 'fidi' ], ['Upper West Side', 'upperwestside'], ['Morningside Heights', 'morningsideheights'], ['Harlem', 'harlem'], ['East Harlem', 'eastharlem'], ['Upper East Side', 'uppereastside']])%>
+            <br>
+			<span class='waves-effect waves-light cyan lighten-1 btn'><%= f.submit id:"projectSubmit" %></span><br><br>
+			<% end %>
+
+		<%= link_to "Back", projects_path %></button><br><br>
+		</div>
+	</div>
