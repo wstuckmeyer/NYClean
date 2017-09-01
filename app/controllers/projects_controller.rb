@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
 
 	def create
 		@current_user = current_user.id
-		@projects = Project.create(name: params[:project][:name], description: params[:project][:description], date: params[:project][:date], photos: params[:project][:photo], location: params[:project][:location], people: params[:project][:people], user_id: current_user)
+		@projects = Project.create(name: params[:project][:name], description: params[:project][:description], date: params[:project][:date], photos: params[:project][:photos], location: params[:project][:location], people: params[:project][:people], user_id: current_user)
 
 		redirect_to project_path
 	end

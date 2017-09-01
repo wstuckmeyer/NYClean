@@ -120,25 +120,25 @@
 		          <!-- </div>
  -->		        </div>
 			</div>
-			  
+			<%@projects = Project.all%>
+		<%@projects.each do |t|%>
+			<div class="grid-item dynamic col s12 m6 l3 <%=t.location%>">			
+						<div class="card">
+			              <div class="card-image">
+			             	 <%=image_tag(t.photos, height: 252)%>
+			              	<span class="card-title"><%=t.name%></span>
+			              </div>
+			            <div class="card-content">
+			              <p><%=t.description%></p>
+			            </div>
+			            <div class="card-action">
+			              <%=link_to 'View', project_path(t)%>
+			            </div>		  
+	 		        </div>
+				</div>
+		<%end%>	  
   		</div>
 		
 		
 	</div>
-	<%@projects = Project.all%>
-	<%@projects.each do |t|%>
-		<div class="grid-item yours col s12 m6 l3 <%=t.neighborhood%>">			
-					<div class="card">
-		              <div class="card-image">
-		             	 <%=image_tag(t.avatar)%>
-		              <span class="card-title"><%=t.name%></span>
-		              </div>
-		            <div class="card-content">
-		              <p><%=t.description%></p>
-		            </div>
-		            <div class="card-action">
-		              <%=link_to 'View', t, project_path(t)%>
-		            </div>		  
- 		        </div>
-			</div>
-	<%end%>
+	
