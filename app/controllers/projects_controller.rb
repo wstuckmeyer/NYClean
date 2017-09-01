@@ -11,13 +11,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-
-		# def progress
-  # 			Volunteers.where(project_id: params[:id]) / params[:id] * 100
-		# end
-
 		@projects = Project.find_by_id(params[:id])
-
 	end
 
 	def create
