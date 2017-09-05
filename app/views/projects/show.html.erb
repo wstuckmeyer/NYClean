@@ -14,32 +14,43 @@
 
 
 <div class="mapPage">
-	<div class="row s12" id='projecttitle'><%=@project.name%></div>
+	
+	
 	<br>
-	<div class="row">
+	<div class="row all">
 
 
 		<!-- enables edit and destroy ONLY if user is logged in -->
 		
-		<div class="col s12 m6 l5  deets" id='projectdeets'>
-			<% if @project.user_id == current_user.id %>
-				<%= link_to "Edit", edit_project_path(@project) %>
-				<%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>
-			<%end%>
-			<h4>About this project</h4>
-			<p><%=@project.date.strftime("%m/%d/%Y")%></p>
-			<p><%=@project.description%></p>
-			<br>
-			<%= form_for(:volunteer, url: volunteers_path, method: :post) do |f| %>
+		
+		<div class='row'>
+			<div class='col l6 center-align'>
+				<%=image_tag(@project.photos, width: '70%')%>
+				<br>
+				<div id="map">MAP DIV</div>
+			</div>
+			<div class='col l6'>
+				<h3><%=@project.name%></h3>
+				<% if @project.user_id == current_user.id %>
+					<div >
+						<%= link_to "Edit", edit_project_path(@project) %> |
+						<%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>
+					</div>
+					<%end%>
+				<h5>About this project</h5>
+				<p><%=@project.date.strftime("%h/%d/%Y")%></p>
+				<p><%=@project.time.strftime("%I:%M%p")%></p>
+				<p><%=@project.description%></p>
+				<%= form_for(:volunteer, url: volunteers_path, method: :post) do |f| %>
 				<%=f.hidden_field :project_id, :value => params[:id] %>
 				<% if Volunteer.exists?(volunteer_id: current_user.id) || @vol == @people || @project.user_id == current_user.id %>
-					<%=f.submit 'Volunteer', class: 'btn-large disabled'%>
+					<%=f.submit 'Volunteer', class: 'btn-large disabled volbtn'%>
 				<%else%>
-				<%=f.submit "Volunteer", class: 'btn-large cyan lighten-1' %>
+				<%=f.submit "Volunteer", class: 'btn-large cyan lighten-1 volbtn' %>
 				<%end%>
 			<%end%>
 			<br><br>
-			<div class="pb">
+			<div class="pb center-align">
 				<div class="pb-title center-align">Volunteers</div>
 				<div>
 					<div class="pb-frame"  >
@@ -53,18 +64,26 @@
 
 				</div>
 			</div>
-			<div  id="map">MAP DIV</div>
+			</div>
+			
+		</div>
+	
+
+
+			<br>
+			
+			
 			</div>
 		
 
-		<div class="col s12 m6 l6 offset-l1 right-align "><%=image_tag(@project.photos, width: '70%')%></div>
+		
 			
 </div>
 	<div class='row'>
 		
 	</div>
 
-
+</div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAP'] %>"

@@ -2,9 +2,9 @@
 
 <body>
 
-	<div class="row" id='top'>
+	<div class="row top" >
 		<div id="welcomeUser" class="col s12 m12 l12 left-align ">
-			<h3 id='welcome'>Welcome <%=current_user.name%></h3>
+			<h3 class='welcome'>Welcome <%=current_user.name%></h3>
 			
 		</div>
 		
@@ -28,7 +28,7 @@
 
 <%@volunteer = Volunteer.where(volunteer_id: current_user.id)%>
 <%puts @volunteer.inspect%>
-
+<div class='usershowstuff'>
 <%@volunteer.each do |t|%>
 	<%@project = Project.where(id: t.project)%>
 	<%@project.each do |t|%>
@@ -65,5 +65,6 @@
  		        </div>
 			</div>
 	<%end%>
+</div>
 </div>
 </div>

@@ -12,12 +12,13 @@
 <body>
 
 	<% if current_user %>
-		<%if current_page?(url_for(:new_project))%>
+		<%if current_page?(url_for(:new_project)) %>
 
 		<div id='projectbackground'></div>
 
-		<%elsif !params[:id].nil? && current_page?(:controller => 'projects', :action => "show", :id => params[:id] ) %>	
 
+		<%elsif !params[:id].nil? && current_page?(:controller => 'projects', :action => "show", :id => params[:id])%>	
+		<div id='projectdeets'>
 		<div id='showproject'></div>
 		<nav class='transparent  z-depth-0'>
 			<div class="nav-wrapper transparent" id='nav'>
