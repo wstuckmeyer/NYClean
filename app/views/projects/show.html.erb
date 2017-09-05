@@ -1,11 +1,17 @@
 
 <% @project = Project.find(params[:id]) %>
 <% @vols = Volunteer.where(project_id: @project.id)%>
+<%@vol = @vols.length%>
+<%@project.people%>
+<% @people = @project.people %>
 <% if @vols.length == 0 %>
 	<% @width = 0 %>
 <%else%>
-	<%@width = @project.people / @vols.length * 100 %>
+	<%@width = (@vol.to_f/@people.to_f) * 100.0  %>
 <%end%>
+
+
+
 
 <div class="mapPage">
 	<div class="row s12" id='projecttitle'><%=@project.name%></div>
@@ -21,15 +27,23 @@
 				<%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>
 			<%end%>
 			<h4>About this project</h4>
+			<p><%=@project.date.strftime("%m/%d/%Y")%></p>
 			<p><%=@project.description%></p>
 			<br>
-			<%= link_to 'Volunteer', new_volunteer_path, class: 'btn cyan lighten-1'%>
+			<%= form_for(:volunteer, url: volunteers_path, method: :post) do |f| %>
+				<%=f.hidden_field :project_id, :value => params[:id] %>
+				<% if Volunteer.exists?(volunteer_id: current_user.id) || @vol == @people || @project.user_id == current_user.id %>
+					<%=f.submit 'Volunteer', class: 'btn-large disabled'%>
+				<%else%>
+				<%=f.submit "Volunteer", class: 'btn-large cyan lighten-1' %>
+				<%end%>
+			<%end%>
 			<br><br>
 			<div class="pb">
 				<div class="pb-title center-align">Volunteers</div>
 				<div>
 					<div class="pb-frame"  >
-						<div class="pb-fill" style="width:<%=@width%>;">&nbsp;</div>
+						<div class="pb-fill" style="width:<%=@width%>%;">&nbsp;</div>
 					</div>
 						<span class="pb-caption"><%=@vols.length%></span>
 						<span class="pb-caption-r"><%=@project.people%></span>

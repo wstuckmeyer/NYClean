@@ -27,7 +27,11 @@
 	
 
 <%@volunteer = Volunteer.where(volunteer_id: current_user.id)%>
-	<%@volunteer.each do |t|%>
+<%puts @volunteer.inspect%>
+
+<%@volunteer.each do |t|%>
+	<%@project = Project.where(id: t.project)%>
+	<%@project.each do |t|%>
 		<div class="grid-item yours col s12 m6 l3 volunter dynamic">			
 					<div class="card">
 		              <div class="card-image">
@@ -42,6 +46,7 @@
 		            </div>		  
  		        </div>
 			</div>
+	<%end%>
 	<%end%>
 <%@yours = Project.where(user_id: current_user.id)%>
 	<%@yours.each do |t|%>
