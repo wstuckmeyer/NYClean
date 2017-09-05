@@ -37,6 +37,11 @@ class ProjectsController < ApplicationController
 	end
 
 	def destroy
+		
+		@volunteers = Volunteer.where(project_id: params[:id])
+		@volunteers.each do |t|
+			t.delete
+		end
 		@project = Project.find(params[:id]).delete
 		redirect_to user_path
 	end
