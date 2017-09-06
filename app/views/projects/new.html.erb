@@ -1,6 +1,6 @@
 <div class='row'>
 	<div class="col s12 m12 l12 left-align ">
-		<h3 id='create'>Create a Project</h3>	
+		<h3 class='create'>Create a Project</h3>	
 
 
 	</div>
@@ -34,7 +34,7 @@
 			<%= f.number_field :people %>
 			<%= f.label :neighborhood%><br>
           
-            <%= f.select :location, options_for_select([['Chelsea', 'chelsea'],["Hell's Kitchen", 'midtownwest'], ['Midtown', 'midtown'], ['Midtown East', 'midtowneast'], ['East Village', 'eastvillage'], ['Lower East Side', 'lowereastside'], ['West Village', 7], ["Greenwich Village", 'greenwichvillage'], ['SoHo', 'soho'], ['Tribeca', 'tribeca'], ['Chinatown', 'chinatownny'], ['Financial District', 'fidi' ], ['Upper West Side', 'upperwestside'], ['Morningside Heights', 'morningsideheights'], ['Harlem', 'harlem'], ['East Harlem', 'eastharlem'], ['Upper East Side', 'uppereastside']])%>
+            <%= f.select :location, options_for_select([['Chelsea', 'chelseany'],["Hell's Kitchen", 'midtownwestny'], ['Midtown', 'midtownny'], ['Midtown East', 'midtowneastny'], ['East Village', 'eastvillageny'], ['Lower East Side', 'lowereastsideny'], ['West Village', 'westvillageny'], ["Greenwich Village", 'greenwichvillageny'], ['SoHo', 'sohony'], ['Tribeca', 'tribecany'], ['Chinatown', 'chinatownny'], ['Financial District', 'fidiny' ], ['Upper West Side', 'upperwestsideny'], ['Morningside Heights', 'morningsideheightsny'], ['Harlem', 'harlemny'], ['East Harlem', 'eastharlemny'], ['Upper East Side', 'uppereastsideny']])%>
             <br>
 			<span class='waves-effect waves-light cyan lighten-1 btn'><%= f.submit id:"projectSubmit" %></span><br><br>
 			<% end %>

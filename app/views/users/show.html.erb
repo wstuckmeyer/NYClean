@@ -10,7 +10,7 @@
 		
 	<div class="row">
 		
-		<div class="button-group filter-button-group ">
+		<div class="button-group filter-button-group">
 		  <button class='btn-large cyan lighten-1' data-filter="*">show all</button>
 		  <button class='btn-large cyan lighten-1' data-filter=".yours">Your Events</button>
 		  <button id='volbtn' class='btn-large cyan lighten-1' data-filter=".volunteer">Volunteering</button> 
@@ -28,11 +28,11 @@
 
 <%@volunteer = Volunteer.where(volunteer_id: current_user.id)%>
 <%puts @volunteer.inspect%>
-<div class='usershowstuff'>
+
 <%@volunteer.each do |t|%>
 	<%@project = Project.where(id: t.project)%>
 	<%@project.each do |t|%>
-		<div class="grid-item yours col s12 m6 l3 volunter dynamic">			
+		<div class="grid-item volunteer col s12 m6 l3  dynamic">			
 					<div class="card">
 		              <div class="card-image">
 		             	 <%=image_tag(t.photos, height: 252)%>
@@ -50,7 +50,7 @@
 	<%end%>
 <%@yours = Project.where(user_id: current_user.id)%>
 	<%@yours.each do |t|%>
-		<div class="grid-item yours col s12 m6 l3 yours dynamic">			
+		<div class="grid-item yours col s12 m6 l3 dynamic">			
 					<div class="card">
 		              <div class="card-image">
 		             	 <%=image_tag(t.photos, height: 252)%>
@@ -65,6 +65,50 @@
  		        </div>
 			</div>
 	<%end%>
+
 </div>
 </div>
-</div>
+
+
+<script>
+$( document ).ready(function(){
+  $(".button-collapse").sideNav();
+   //image thing
+   
+
+	///////////////
+  $('.grid').isotope({
+  // options
+  itemSelector: '.grid-item',
+  layoutMode: 'fitRows'
+});
+  
+  var $grid = $('.grid').isotope({
+  // options
+});
+  $('.filter-button-group').on( 'click', 'button', function() {
+    var filterValue = $(this).attr('data-filter');
+    $grid.isotope({ filter: filterValue });
+  });
+
+  $(function() {
+
+    var $container = $('#container'),
+    $select = $('#filters select');
+
+    $container.isotope({
+      itemSelector: '.item'
+    });
+
+    $select.change(function() {
+      var filters = $(this).val();
+      ;
+      $container.isotope({
+        filter: filters
+      });
+    });
+
+  });
+
+})
+</script>
