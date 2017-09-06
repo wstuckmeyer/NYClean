@@ -1,4 +1,4 @@
-
+<%@user = User.find(@project.user_id)%>
 <% @project = Project.find(params[:id]) %>
 <% @vols = Volunteer.where(project_id: @project.id)%>
 <%@vol = @vols.length%>
@@ -30,7 +30,7 @@
 				<div id="map">MAP DIV</div>
 			</div>
 			<div class='col l6'>
-				<h3><%=@project.name%></h3>
+				<h3><%=@project.name%><%=image_tag(@user.avatar, width: '10%', class: 'useravatar')%></h3><p> By: <%=@user.name%></p>
 				<% if @project.user_id == current_user.id %>
 					<div >
 						<%= link_to "Edit", edit_project_path(@project) %> |
@@ -43,7 +43,7 @@
 				<p><%=@project.description%></p>
 				<%= form_for(:volunteer, url: volunteers_path, method: :post) do |f| %>
 				<%=f.hidden_field :project_id, :value => params[:id] %>
-				<% if Volunteer.exists?(volunteer_id: current_user.id) || @vol == @people || @project.user_id == current_user.id %>
+				<% if Volunteer.exists?(volunteer_id: current_user.id, project_id: @project) || @vol == @people || @project.user_id == current_user.id %>
 					<%=f.submit 'Volunteer', class: 'btn-large disabled volbtn'%>
 				<%else%>
 				<%=f.submit "Volunteer", class: 'btn-large cyan lighten-1 volbtn' %>

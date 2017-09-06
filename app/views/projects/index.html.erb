@@ -11,37 +11,37 @@
  <a id='dropdownbtn' class='dropdown-button btn-large cyan lighten-1' data-activates='dropdown3'>Neighborhoods</a>
 	<div id='dropdown3' class="button-group filter-button-group dropdown-content">
 		 <button class='drp btn transparent z-depth-0' data-filter="*">All</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".chelsea">Chelsea</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".westvillage">West Village</button> 
-		 <button class='drp btn transparent z-depth-0' data-filter=".midtownwest">Hell's Kitchen</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".midtown">Midtown</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".midtowneast">Midtown East</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".eastvillage">East Village</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".lowereastside">Lower East Side</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".westvillage">West Village</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".greenwichvillage">The Village</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".soho">SoHo</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".tribeca">Tribeca</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".chelseany">Chelsea</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".westvillageny">West Village</button> 
+		 <button class='drp btn transparent z-depth-0' data-filter=".midtownwestny">Hell's Kitchen</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".midtownny">Midtown</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".midtowneastny">Midtown East</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".eastvillageny">East Village</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".lowereastsideny">Lower East Side</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".westvillageny">West Village</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".greenwichvillageny">The Village</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".sohony">SoHo</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".tribecany">Tribeca</button>
 		 <button class='drp btn transparent z-depth-0' data-filter=".chinatownny">Chinatown</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".fidi">FiDi</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".upperwestside">Upper West Side</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".morningsideheights">Morningside</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".harlem">Harlem</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".eastharlem">East Harlem</button>
-		 <button class='drp btn transparent z-depth-0' data-filter=".uppereastside">Upper East Side</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".fidiny">FiDi</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".upperwestsideny">Upper West Side</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".morningsideheightsny">Morningside</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".harlemny">Harlem</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".eastharlemny">East Harlem</button>
+		 <button class='drp btn transparent z-depth-0' data-filter=".uppereastsideny">Upper East Side</button>
 
 		 
 	</div>
 </div>
-	<div class='usershowstuff'>
+	
 	<div class='row' id='cards'>
         <div class="grid"
 			  data-isotope='{ "itemSelector": ".grid-item", "masonry": { "columnWidth": 200 } }'>
 			
-			</div>
+			
 			<%@projects = Project.all%>
 		<%@projects.each do |t|%>
-			<div class=" usershowstuff grid-item dynamic col s12 m6 l3 <%=t.location%>">			
+			<div class="grid-item <%=t.location%> dynamic col s12 m6 l3 ">			
 						<div class="card">
 			              <div class="card-image">
 			             	 <%=image_tag(t.photos, height: 252)%>
@@ -60,4 +60,47 @@
 	</div>	
 		
 	</div>
+
+	<script>
+$( document ).ready(function(){
+  $(".button-collapse").sideNav();
+   //image thing
+   
+
+	///////////////
+  $('.grid').isotope({
+  // options
+  itemSelector: '.grid-item',
+  layoutMode: 'fitRows'
+});
+  
+  var $grid = $('.grid').isotope({
+  // options
+});
+  $('.filter-button-group').on( 'click', 'button', function() {
+    var filterValue = $(this).attr('data-filter');
+    $grid.isotope({ filter: filterValue });
+  });
+
+  $(function() {
+
+    var $container = $('#container'),
+    $select = $('#filters select');
+
+    $container.isotope({
+      itemSelector: '.item'
+    });
+
+    $select.change(function() {
+      var filters = $(this).val();
+      ;
+      $container.isotope({
+        filter: filters
+      });
+    });
+
+  });
+
+})
+</script>
 	
