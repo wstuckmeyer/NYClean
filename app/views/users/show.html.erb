@@ -32,7 +32,7 @@
 <%@volunteer.each do |t|%>
 	<%@project = Project.where(id: t.project)%>
 	<%@project.each do |t|%>
-		<div class="grid-item yours col s12 m6 l3 volunter dynamic">			
+		<div class="grid-item yours col s12 m6 l3 volunteer dynamic">			
 					<div class="card">
 		              <div class="card-image">
 		             	 <%=image_tag(t.photos, height: 252)%>
