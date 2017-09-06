@@ -11,50 +11,12 @@
 // about supported directives.
 
 
-
-
 //= require jquery-3.2.1.js
 //= require isotope.js
-//= require rails-ujs
 //= require_self
+//= require rails-ujs
+
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
 
-$( document ).ready(function(){
-	 $(".button-collapse").sideNav();
-
-	
-	 $('.grid').isotope({
-  // options
-  itemSelector: '.grid-item',
-  layoutMode: 'fitRows'
-});
-	 var $grid = $('.grid').isotope({
-  // options
-});
-	 $('.filter-button-group').on( 'click', 'button', function() {
-  		var filterValue = $(this).attr('data-filter');
-  		$grid.isotope({ filter: filterValue });
-});
-
-$(function() {
-
-    var $container = $('#container'),
-        $select = $('#filters select');
-
-    $container.isotope({
-        itemSelector: '.item'
-    });
-
-    $select.change(function() {
-        var filters = $(this).val();
-;
-        $container.isotope({
-            filter: filters
-        });
-    });
-
-});
-
-})
